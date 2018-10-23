@@ -6,3 +6,14 @@ body {
 p {
   color: #00B7FF;
 }
+
+label {
+  color: hotpink;
+}
+
+button {
+  background-color: orange;
+  color: white;
+  border: solid 1px orange;
+  border-radius: 50%;
+}

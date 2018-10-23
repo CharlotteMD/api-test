@@ -1,11 +1,17 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const bodyParser = require('body-parser');
+// app.use(bodyParser.json());
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var usersRouter = require('./routes/users');
 var functions = require('./routes/functions');
 
@@ -23,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // PAGES
 
-app.use('/', indexRouter, functions.handleSubmit);
+app.use('/', indexRouter);
+app.use('/results', indexRouter);
 app.use('/users', usersRouter);
 
 
