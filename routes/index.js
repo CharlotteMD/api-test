@@ -11,10 +11,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/results', function(req, res, next) {
-  functions.handleSubmit(req);
-  res.send('Hello');
+  functions.handleSubmit(req)
+  .then((token) => functions.upload(token))
+  
 });
 
 
 
 module.exports = router;
+// .then(() => res.send(token)) this is how you render to a page
